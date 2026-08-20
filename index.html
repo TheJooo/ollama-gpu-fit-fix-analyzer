@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ollama GPU Fit & Fix Analyzer — local diagnostic report</title>
+  <meta name="description" content="Turn a sanitized Ollama and GPU diagnostic excerpt into a local, source-linked troubleshooting report. No uploads or accounts.">
+  <link rel="canonical" href="https://thejooo.github.io/ollama-gpu-fit-fix-analyzer/"><meta name="robots" content="index,follow">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Ollama GPU Fit & Fix Analyzer","url":"https://thejooo.github.io/ollama-gpu-fit-fix-analyzer/","applicationCategory":"DeveloperApplication","operatingSystem":"Any modern browser","description":"A browser-local, deterministic analyzer for deliberately scoped Ollama and GPU diagnostic excerpts.","isAccessibleForFree":true,"browserRequirements":"JavaScript enabled"}</script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+  <header><p class="eyebrow">Independent utility · not affiliated with Ollama</p><h1>Ollama GPU Fit &amp; Fix Analyzer</h1><p>Read a deliberately scoped, sanitized diagnostic locally in your browser. It is not uploaded, stored, or sent over a network.</p></header>
+  <section class="panel" aria-labelledby="analyze-title"><h2 id="analyze-title">Create a local report</h2><p class="warning">Diagnostics may contain paths, hostnames, IPs, prompts, or credentials. Remove secrets first; the preview applies additional local redaction.</p>
+    <form id="analyzer-form"><label for="diagnostic">Sanitized output from <code>ollama ps</code>, an Ollama log, or a GPU diagnostic</label><textarea id="diagnostic" required rows="12" placeholder="Example: PROCESSOR 100% CPU&#10;or a sanitized GPU/log excerpt"></textarea><div class="actions"><button type="submit">Analyze locally</button><button id="clear" type="button" class="secondary">Clear and reset</button></div></form>
+    <h3>Sanitized local preview</h3><pre id="preview" aria-live="polite">Nothing to preview yet.</pre>
+  </section>
+  <section id="result" class="panel" aria-live="polite" hidden></section>
+  <section><h2>What this can and cannot tell you</h2><p>This deterministic rule pack recognizes documented CPU fallback, partial offload, allocation-error, and Docker/GPU signatures. It separates supplied observations from likely or possible causes. Missing evidence stays “insufficient evidence.”</p><p>It never runs a command, changes your configuration, measures performance, or promises a repair. Use the linked official documentation to make any system change deliberately.</p><p class="muted">Rule pack <span id="rule-pack"></span>; official-source retrieval date: 2026-08-20.</p></section>
+</main><footer><p>No analytics, ads, or third-party diagnostic scripts are loaded on this page.</p></footer><script type="module" src="app.js"></script>
+</body></html>
